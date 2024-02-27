@@ -9,7 +9,7 @@ exports.userLogin = async (req, res) => {
         const userfound = await User.findOne({ email: email, password: password })
 
         if (userfound) {
-            const response = { name: userfound.name, email: userfound.email, isAdmin: userfound.isAdmin, _id: userfound._id }
+            const response = { name: userfound.name, email: userfound.email, _id: userfound._id }
             res.status(201).json({ user: response, message: "User Logged in" })
         } else {
             const emailFound = await User.findOne({ email: email });
