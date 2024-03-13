@@ -22,16 +22,15 @@ const productSchema = new mongoose.Schema({
         max: [99, 'wrong max discount'],
     },
     rating: { type: Number, min: [0, 'wrong min rating'], max: [5, 'wrong max rating'], default: 0 },
-    thumbnailImage: {
+    thumbnail: {
         type: String,
         required: true,
     },
-    productImages: {
-        type: String,
-    },
+    images: [],
     brand: {
         type: Schema.Types.ObjectId,
         ref: "Brand",
+        default: null
     },
     stock: {
         type: Number,
@@ -40,6 +39,7 @@ const productSchema = new mongoose.Schema({
     category: {
         type: Schema.Types.ObjectId,
         ref: "Category",
+        default: null
     },
     isDeleted: { type: Boolean, default: false },
 

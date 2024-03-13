@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 
 const brandSchema = new mongoose.Schema({
-    name: { type: String, default: "BuyIt" },
+    name: { type: String, default: "buyit" },
     checked: { type: Boolean, default: false },
 }, { timestamps: true })
 

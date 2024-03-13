@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 
 const categorySchema = new mongoose.Schema({
-    name: { type: String, default: "routine" },
+    name: { type: String, default: "buyit" },
     checked: { type: Boolean, default: false },
 }, { timestamps: true })
 

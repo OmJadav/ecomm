@@ -1,7 +1,31 @@
 const Product = require("../models/productSchema")
 const Category = require("../models/categorySchema");
 
+exports.addProducts = async (req, res) => {
 
+    // const productData = { title, stock, category, brand, description, price, discountPercentage, rating, thumbnailImage, img1, img2, img3, img4 }
+    try {
+        const newProduct = new Product(req.body)
+        await newProduct.save()
+        res.status(201).json({ success: "Product Added..." })
+
+    } catch (error) {
+        res.status(404).json({ error: "Create Products Error..." })
+    }
+}
+// , img1, img2, img3, img4
+
+exports.updateProduct = async (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true })
+        // const updatedProduct = await product.save()
+        res.status(200).json(updatedProduct);
+    } catch (error) {
+        res.status(404).json({ error: "Updaing Products Error..." })
+    }
+}
 
 exports.fetchFilteredProducts = async (req, res) => {
     try {
